@@ -1,0 +1,23 @@
+{
+  "name": "take_framework_ts",
+  "version": "1.0.0",
+  "main": "dist/web/program.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/web/program.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.12",
+    "@types/node": "^20.10.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "koa": "^2.14.2",
+    "reflect-metadata": "^0.2.1",
+    "tsconfig-paths": "^4.2.0",
+    "tsyringe": "^4.8.0"
+  }
+}
