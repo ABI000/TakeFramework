@@ -3,12 +3,18 @@ import { IGenericBaseRepository } from "@/core/domain/repositories/IBaseReposito
 import { IGenericEntity } from "@/core/domain/entites/IEntity";
 import { Blog } from "@/domain/blog";
 import { injectable } from "tsyringe";
-
+import { PrismaClient } from '@prisma/client';
 
 
 @injectable()
 export class PrismaRepository<T extends IGenericEntity<TPrimaryKey>, TPrimaryKey extends string | number | bigint> extends BaseRepository<T, TPrimaryKey> implements IGenericBaseRepository<T, TPrimaryKey> {
-
+    constructor() {
+        super();
+        this.prisma = new PrismaClient();
+       
+    }
+    protected prisma: PrismaClient;
+    
     override  CreateAsync(intput: T): T {
         return intput;
     }
@@ -20,3 +26,5 @@ export class PrismaRepository<T extends IGenericEntity<TPrimaryKey>, TPrimaryKey
         return new c();
     }
 }
+
+
